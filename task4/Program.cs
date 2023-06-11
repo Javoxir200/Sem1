@@ -1,7 +1,6 @@
 ﻿Console.WriteLine("Введите число: A");
 string? numA = Console.ReadLine();
 int stringnumA = Convert.ToInt32(numA);
-//Console.WriteLine(numberInt * numberInt);
 
 Console.WriteLine("Введите число: B");
 string? numB = Console.ReadLine();
