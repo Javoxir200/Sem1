@@ -22,5 +22,5 @@ int[] GetRandomMassive(int[] massive)
 int[] myArray = GetRandomArray();
 Console.WriteLine($"[{string.Join(", ", myArray)} ]");
 
-Console.WriteLine($"[{string.Join(", ", massive)} ]");
+Console.WriteLine($"[{string.Join(", ", myArray)} ]");
 
