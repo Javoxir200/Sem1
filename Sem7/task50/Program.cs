@@ -40,7 +40,6 @@ void PrintArray(int[,] array)
     Console.WriteLine();
 }
 
-// Функция ввода 
 int ReadInt(string message)
 {
     Console.Write(message);
