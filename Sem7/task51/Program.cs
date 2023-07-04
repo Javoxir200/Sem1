@@ -5,62 +5,60 @@
 8 4 2 4
 Сумма элементов главной диагонали: 1+9+2 = 12*/
 
-const int ROWS = 3;
-const int COLUMNS = 4;
+int rows = ReadInt("Введите номер строки: ");
+int colums = ReadInt("Введите номер столбца: ");
+int[,] numbers = new int[rows, colums];
+FillArray2D(numbers);
+PrintArray2D(numbers);
 
+double[] avgNumbers = new double[numbers.GetLength(1)];
 
-int[,] GetRandomMatrix(int rows, int columns)
+for (int i = 0; i < numbers.GetLength(1); i++)
 {
-    int[,] matrix = new int[rows, columns];
-    for (int i = 0; i < matrix.GetLength(0); i++)
+    double result = 0.0;
+    for (int j = 0; j < numbers.GetLength(0); j++)
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)
+        result += numbers[j, i];
+    }
+    avgNumbers[i] = result / numbers.GetLength(0);
+}
+PrintArray(avgNumbers);
+
+void FillArray2D(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-            matrix[i, j] = i + j;
+            array[i, j] = new Random().Next(1, 10);
         }
     }
-    return matrix;
 }
-void PrintMatrix(int[,] matrix)
+
+void PrintArray2D(int[,] array)
 {
-    for (int i = 0; i < matrix.GetLength(0); i++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-            Console.Write($"{matrix[i, j]} ");
+            Console.Write(array[i, j] + " ");
         }
         Console.WriteLine();
     }
+    Console.WriteLine();
 }
 
-int ChangeMatrix(int[,] matrix)
+void PrintArray(double[] array)
 {
-    int min = matrix.GetLength(0);
-    int sum = 0;
-    // for (int i = 0; i < matrix.GetLength(0); i++)
-    // {
-    //     /*for (int j = 0; j < matrix.GetLength(1); j++)
-    //     {
-    //         if (i==j)
-    //         {
-    //             sum+=matrix[i,j];
-    //         }
-    //     }*/
-
-    // }
-    if (matrix.GetLength(0) > matrix.GetLength(1))
+    for (int i = 0; i < array.Length; i++)
     {
-        min=matrix.GetLength(1);
+        Console.Write(array[i] + " ");
     }
-    for (int i = 0; i < min; i++)
-    {
-        sum=sum+matrix[i,i];
-    }
-    return sum;
+    Console.WriteLine();
 }
 
-int[,] myMatrix = GetRandomMatrix(ROWS, COLUMNS);
-PrintMatrix(myMatrix);
-
-int myMatrix1 = ChangeMatrix(myMatrix);
-Console.WriteLine($"[{string.Join(", ", myMatrix1)} ]");
+int ReadInt(string message)
+{
+    Console.Write(message);
+    return Convert.ToInt32(Console.ReadLine());
+}
