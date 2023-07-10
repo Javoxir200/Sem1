@@ -1,24 +1,9 @@
-﻿/*Задача 63: Задайте значение N. Напишите программу, которая выведет все натуральные числа в промежутке от 1 до N.
-N = 5 -> "1, 2, 3, 4, 5"
-N = 6 -> "1, 2, 3, 4, 5, 6"*/
-
-int number = 10;
-
-void Perechislenie(int LastNumber)
+﻿void Perechislenie(int LastNumber)
 {
-    if (LastNumber <= 0) return;
-    Perechislenie (LastNumber - 1);
-    Console.Write (LastNumber + "   " );
+    if(LastNumber < 1) return;
+    Perechislenie(LastNumber - 1);
+    Console.Write(LastNumber + " ");
 }
+
+int number = 6;
 Perechislenie(number);
-
-void Perschislenit()
-{
-    for (int i = 0; i < length; i++)
-    {
-        if (true)
-        {
-            
-        }
-    }
-}

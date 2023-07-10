@@ -9,4 +9,4 @@ void PrintBinaryView(int decNumber)
     Console.Write(decNumber % 2);
 }
 
-PrintBinaryView(number);
+PrintBinaryView(number); 
